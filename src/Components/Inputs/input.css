@@ -20,7 +20,13 @@ input {
     height: 38px;
 }
 
-.textarea {
+input[type='checkbox'],
+input[type='radio'] {
+    width: 20px;
+    height: 20px;
+}
+
+textarea {
     border: 1px solid #6d6d6d;
     border-radius: 5px;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -29,11 +35,12 @@ input {
     color: #6d6d6d;
     text-indent: 2px;
     width: 300px;
-    resize: block;
+    resize: vertical;
 }
 
-input::placeholder {
-    color: #aaaaaa;
+input::placeholder,
+textarea::placeholder {
+  color: #aaaaaa;
 }
 
 input:focus,

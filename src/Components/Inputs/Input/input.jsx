@@ -1,10 +1,11 @@
+
 import React from 'react'
 
-function Textarea ({
+function Input ({
     label = 'Label',
+    type = 'text',
     placeholder = 'Type Something...',
-    rows = 1,
-    cols = 1,
+    disabled = false,
     ...props
 }) {
     return (
@@ -17,10 +18,10 @@ function Textarea ({
             >
                 {label}
             </label>
-            <textarea 
+            <input 
+                type={type}
                 placeholder={placeholder}
-                cols={cols}
-                rows={rows}
+                disabled={disabled}
                 autoCorrect='false'
                 spellCheck='false'
                 aria-label={placeholder}
@@ -31,5 +32,5 @@ function Textarea ({
 }
 
 export {
-    Textarea
+    Input
 };

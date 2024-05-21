@@ -13,18 +13,40 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader'
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      }
+        exclude: /\.module\.css$/,  // Exclude .module.css files
+        use: ['style-loader', 'css-loader'],  // Use regular CSS loader for .css files
+      },
+      {
+        test: /\.module\.css$/i,  // Only match .module.css files
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+                    modules: {
+                        localIdentName: '[local]', // Keep original class names
+                    },
+                },
+            },
+        ],
+      },
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css'],
+  },
   externals: {
-    // Specify any dependencies here that should not be bundled
-    react: 'react'
+    react: {
+        commonjs: 'react',
+        commonjs2: 'react',
+        amd: 'React',
+        root: 'React',
+    },
   }
 };

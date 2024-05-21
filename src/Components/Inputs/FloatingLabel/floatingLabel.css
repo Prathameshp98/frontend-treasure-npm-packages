@@ -1,0 +1,19 @@
+
+.floatingCommon {
+    position: relative;
+    width: 0;
+    left: 5px;
+    transition: all 0.3s ease;
+    height: 10px;
+}
+
+.floatingLabel {  
+    top: 24px;
+    transition: all 0.3s ease;
+}
+  
+.floatingLabelShrink {
+    color: #6d6d6d;
+    top: 20px;
+    font-size: 12px;
+}
